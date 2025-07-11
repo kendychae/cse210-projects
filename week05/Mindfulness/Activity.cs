@@ -22,7 +22,7 @@ public class Activity
         Console.WriteLine();
         Console.Write("How long, in seconds, would you like for your session? ");
         _duration = int.Parse(Console.ReadLine());
-        
+
         Console.Clear();
         Console.WriteLine("Get ready...");
         ShowSpinner(5);
@@ -33,7 +33,7 @@ public class Activity
         Console.WriteLine();
         Console.WriteLine("Well done!!");
         ShowSpinner(4);
-        
+
         Console.WriteLine();
         Console.WriteLine($"You have completed another {_duration} seconds of the {_name}.");
         ShowSpinner(5);
@@ -46,17 +46,17 @@ public class Activity
         animationStrings.Add("/");
         animationStrings.Add("-");
         animationStrings.Add("\\");
-        
+
         DateTime endTime = DateTime.Now.AddSeconds(seconds);
         int i = 0;
-        
+
         while (DateTime.Now < endTime)
         {
             string s = animationStrings[i];
             Console.Write(s);
             Thread.Sleep(1000);
             Console.Write("\b \b");
-            
+
             i++;
             if (i >= animationStrings.Count)
             {

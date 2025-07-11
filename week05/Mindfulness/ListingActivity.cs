@@ -7,7 +7,7 @@ public class ListingActivity : Activity
     private int _count;
     private List<string> _prompts;
 
-    public ListingActivity() : base("Listing Activity", 
+    public ListingActivity() : base("Listing Activity",
         "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.")
     {
         _prompts = new List<string>
@@ -24,7 +24,7 @@ public class ListingActivity : Activity
     public override void Run()
     {
         DisplayStartingMessage();
-        
+
         Console.WriteLine("List as many responses you can to the following prompt:");
         Console.WriteLine($" --- {GetRandomPrompt()} ---");
         Console.Write("You may begin in: ");
@@ -33,7 +33,7 @@ public class ListingActivity : Activity
 
         List<string> items = GetListFromUser();
         Console.WriteLine($"You listed {items.Count} items!");
-        
+
         DisplayEndingMessage();
     }
 
@@ -48,15 +48,15 @@ public class ListingActivity : Activity
     {
         List<string> items = new List<string>();
         DateTime endTime = DateTime.Now.AddSeconds(_duration);
-        
+
         while (DateTime.Now < endTime)
         {
             Console.Write("> ");
-            
+
             // Simple input method - read until enter or time runs out
             string response = "";
             DateTime inputStart = DateTime.Now;
-            
+
             while (DateTime.Now < endTime)
             {
                 if (Console.KeyAvailable)
@@ -84,7 +84,7 @@ public class ListingActivity : Activity
                 }
                 Thread.Sleep(50);
             }
-            
+
             // If time ran out during input, break
             if (DateTime.Now >= endTime)
             {
@@ -92,7 +92,7 @@ public class ListingActivity : Activity
                 break;
             }
         }
-        
+
         return items;
     }
 }

@@ -7,7 +7,7 @@ public class ReflectingActivity : Activity
     private List<string> _prompts;
     private List<string> _questions;
 
-    public ReflectingActivity() : base("Reflecting Activity", 
+    public ReflectingActivity() : base("Reflecting Activity",
         "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.")
     {
         _prompts = new List<string>
@@ -35,29 +35,29 @@ public class ReflectingActivity : Activity
     public override void Run()
     {
         DisplayStartingMessage();
-        
+
         Console.WriteLine("Consider the following prompt:");
         Console.WriteLine();
         Console.WriteLine($" --- {GetRandomPrompt()} ---");
         Console.WriteLine();
         Console.WriteLine("When you have something in mind, press enter to continue.");
         Console.ReadLine();
-        
+
         Console.WriteLine("Now ponder on each of the following questions as they related to this experience.");
         Console.Write("You may begin in: ");
         ShowCountDown(5);
-        
+
         Console.Clear();
-        
+
         DateTime endTime = DateTime.Now.AddSeconds(_duration);
-        
+
         while (DateTime.Now < endTime)
         {
             Console.Write($"> {GetRandomQuestion()} ");
             ShowSpinner(15);
             Console.WriteLine();
         }
-        
+
         DisplayEndingMessage();
     }
 
